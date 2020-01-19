@@ -6,8 +6,10 @@ complete <- function(directory,id= 1:332){
   for (i in id) {
     filepath = paste(directory,"/",filenames[i], sep= '')
     data = read.csv(filepath, header = TRUE)
-    total_obs <- rbind(total_obs, c(i,sum(complete.cases(data))))
+    nob = sum(complete.cases(data))
+    total_obs <- rbind(total_obs, c(i,nob))
   }
   total_obs
 }
+
 
